@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="../../../../static/candidate3/assets/css/style.css">
+    <link rel="stylesheet" href="../../../../static/candidate3/css/plugins.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/plugins.css') }}">
+ 
+    <link rel="stylesheet" type="text/css" href="../../../../static/candidate3/assets/css/custom.css">
+    
+    <!-- <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"
+        data-turbolinks-eval="false" data-turbo-eval="false"></script> -->
+</head>
+
+<!-- <script src="../../../../static/candidate3/js/third-party.js"></script>
+<script src="../../../../static/candidate3/js/pages.js"></script> -->
+
+
+<body class="overflow-x-hidden">
+    <div class="d-flex flex-column flex-root">
+        <div class="d-flex flex-column flex-column-fluid">
+            <div class="header fixed-header">
+                <header class='container-fluid container-xxl d-flex align-items-stretch justify-content-between'>
+    <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+        <a href="http://127.0.0.1:8000" data-turbo="false" target="_blank"
+           class="text-decoration-none horizontal-sidebar-logo d-flex align-items-center pe-xl-8">
+            <div class="image image-mini me-3">
+                <img src="http://127.0.0.1:8000/assets/img/infyom-logo.png"
+                     class="img-fluid" alt="profile image">
+            </div>
+            <span class="text-gray-900 fs-4 d-none d-sm-block"> Da Hustle</span>
+        </a>
+    </div>
+
+    <div class="d-flex align-items-stretch justify-content-xl-between justify-content-end flex-grow-1">
+        <nav class="navbar navbar-expand-xl navbar-light horizontal-sidebar d-xl-flex d-block align-items-stretch py-3 py-xl-0"
+             id="nav-header">
+            <div class="ps-xl-7 px-2 pe-xl-0 d-flex align-items-stretch">
+    <ul class="horizontal-menu nav flex-row d-block d-xl-flex">
+        <li class="nav-item ">
+            <a class="nav-link d-flex align-items-center py-3" aria-current="page"
+               href="/candidate2/dashboard">
+                <span class="horizontal-menu-icon"><i class="fab fa-dashcube"></i></span>
+                <span class="horizontal-menu-title">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link d-flex align-items-center py-3" aria-current="page"
+               href="/candidate2/profile">
+                <span class="horizontal-menu-icon"><i class="far fa-user-circle"></i></span>
+                <span class="horizontal-menu-title">Profile</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link d-flex align-items-center py-3" aria-current="page"
+               href="http://127.0.0.1:8000/candidate/favourite-jobs">
+                <span class="horizontal-menu-icon"><i class="far fa-star"></i></span>
+                <span class="horizontal-menu-title">Favourite Jobs</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link d-flex align-items-center py-3" aria-current="page"
+               href="http://127.0.0.1:8000/candidate/favourite-companies">
+                <span class="horizontal-menu-icon"><i class="far fa-building"></i></span>
+                <span class="horizontal-menu-title">Followings</span>
+            </a>
+        </li>
+                    <li class="nav-item ">
+                <a class="nav-link d-flex align-items-center py-3" aria-current="page"
+                   href="http://127.0.0.1:8000/candidate/applied-jobs">
+                    <span class="horizontal-menu-icon"><i class="fas fa-briefcase"></i></span>
+                    <span class="horizontal-menu-title">Applied Jobs</span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link d-flex align-items-center py-3" aria-current="page"
+                   href="http://127.0.0.1:8000/candidate/job-alerts">
+                    <span class="horizontal-menu-icon"><i class="far fa-bell"></i></span>
+                    <span class="horizontal-menu-title">Job Alerts</span>
+                </a>
+            </li>
+            </ul>
+</div>
+        </nav>
+        <ul class="nav align-items-stretch flex-nowrap">
+            <li class="px-xxl-3 px-2 d-flex align-items-stretch">
+                <a href="http://127.0.0.1:8000/theme-mode" class="d-flex align-items-center" data-turbo="false">
+                    <i class="fas user-check-icon fa-moon fs-2"></i>
+                </a>
+            </li>
+            <li class="px-xxl-3 px-2 d-flex align-items-stretch">
+                <div class="dropdown custom-dropdown d-flex align-items-center py-4">
+                    <button class="btn dropdown-toggle hide-arrow ps-2 pe-0 py-0 position-relative" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-bell text-primary fs-2"></i>
+                                                </button>
+                    <div class="dropdown-menu py-0" aria-labelledby="dropdownMenuButton1">
+                        <div class="text-start border-bottom py-4 px-7">
+                            <h3 class="text-gray-900 mb-0">Notifications</h3>
+                        </div>
+                        <div class="px-7 mt-5 inner-scroll height-270">
+                                                            <div class="empty-state fs-6 text-gray-800 fw-bold text-center mt-5" data-height="400">
+                                    <p>We couldn&#039;t find any notifications</p>
+                                </div>
+                                                        <div class="empty-state fs-6 text-gray-800 fw-bold text-center mt-5 d-none"
+                                 data-height="400">
+                                <p>We couldn&#039;t find any notifications</p>
+                            </div>
+                        </div>
+                                            </div>
+
+                </div>
+            </li>
+
+            <li class="px-xxl-3 px-2 d-flex align-items-stretch">
+                <div class="dropdown dropdown-transparent d-flex align-items-stretch">
+                    <button class="btn dropdown-toggle px-0 text-gray-600 d-flex align-items-center" type="button"
+                            id="dropdownMenuButton1" data-bs-auto-close="outside"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="image image-circle image-mini d-flex align-items-center me-sm-3">
+                            <img src="http://127.0.0.1:8000/assets/img/infyom-logo.png"
+                                 class="img-fluid" alt="profile image">
+                        </div>
+                        Dan Sana
+
+                    </button>
+                    <div class="dropdown-menu py-7 pb-4" aria-labelledby="dropdownMenuButton1"
+                         data-bs-auto-close="outside">
+                        <div class="text-center border-bottom pb-5 ">
+                            <div class="image image-circle image-tiny mb-5">
+                                <img src="http://127.0.0.1:8000/assets/img/infyom-logo.png" class="img-fluid" alt="profile image">
+                            </div>
+                            <h3 class="text-gray-900">Dan Sana</h3>
+                            <h4 class="mb-0 fw-400 fs-6">dan@gmail.com</h4>
+                        </div>
+                        <ul class="pt-4">
+                            <li>
+                                <a href="javascript:void(0)" class="dropdown-item text-gray-900 editCandidateProfileModal"
+                                   data-id="4">
+                                     <span class="dropdown-icon me-4 text-gray-600">
+                                        <i class="fa-solid fa-user"></i>
+                                     </span> Edit Profile</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-gray-900 changePasswordModal"
+                                   href="javascript:void(0)"  data-id="4">
+                                    <span class="dropdown-icon me-4 text-gray-600">
+                                        <i class="fa-solid fa-lock"></i>
+                                    </span> Change Password
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-gray-900 changeLanguageModal"
+                                   href="javascript:void(0)" data-id="4">
+                                    <span class="dropdown-icon me-4 text-gray-600">
+                                        <i class="fa-solid fa-globe"></i>
+                                    </span> Change Language
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-gray-900" href="http://127.0.0.1:8000/logout"
+                                   onclick="event.preventDefault(); localStorage.clear();  document.getElementById('logout-form').submit();">
+                                    <span class="dropdown-icon me-4 text-gray-600">
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                    </span> Logout
+                                </a>
+                                <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" class="d-none">
+                                    <input type="hidden" name="_token" value="rQlXdhn3RGAbolXtYafQE9LUJEVe4qBXK0MjJyze">
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="d-flex align-items-center">
+                <button type="button" class="btn px-0 horizontal-menubar d-block d-xl-none text-gray-600">
+                    <i class="fa-solid fa-bars fs-1"></i>
+                </button>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="bg-overlay" id="horizontal-menubar-overly"></div>
+            </div>
+            <div class="theme-wrapper d-flex flex-column flex-row-fluid">
+                <div class='d-flex flex-column flex-row-fluid'>
+                    <div class="d-flex flex-column flex-column-fluid pt-7">
+                        <div class="content flex-column-fluid">
+                            <div class="container-fluid container-xxl">
+                                            <div class="mb-5 mb-xl-3">
+        <div class="py-0">
+            <div class="overflow-hidden">
+    <ul class="nav nav-tabs overflow-auto flex-nowrap text-nowrap" id="subAnalytics" role="tablist">
+        <li class="nav-item position-relative me-7 mb-3" role="presentation">
+            <a class="nav-link p-0  fs-5"
+               href="/candidate2/general"
+               tabindex="-1">General</a>
+        </li>
+        <li class="nav-item position-relative me-7 mb-3" role="presentation">
+            <a class="nav-link p-0  active fs-5"
+               href="http://127.0.0.1:8000/candidate/profile?section=resume">  Resume</a>
+        </li>
+        <li class="nav-item position-relative me-7 mb-3" role="presentation">
+            <a class="nav-link p-0  fs-5"
+               href="/candidate2/career">  Career Informations</a>
+        </li>
+        <li class="nav-item position-relative me-7 mb-3" role="presentation">
+            <a class="nav-link p-0  fs-5"
+               href="http://127.0.0.1:8000/candidate/profile?section=cv-builder"> CV Builder</a>
+        </li>
+    </ul>
+</div>
+
+
+        </div>
+    </div>
+    <div>
+        <div class="py-0">
+                <div class="d-flex flex-column ">
+    <div wire:snapshot="{&quot;data&quot;:{&quot;showFilterOnHeader&quot;:false,&quot;showButtonOnHeader&quot;:true,&quot;buttonComponent&quot;:&quot;candidate.profile.resume_table_components.add_button&quot;,&quot;paginationStatus&quot;:true,&quot;sortingPillsStatus&quot;:false,&quot;emptyMessage&quot;:&quot;messages.flash.no_record&quot;,&quot;table&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;theme&quot;:null,&quot;defaultVisibleColumnCount&quot;:3,&quot;visibleColumnCount&quot;:3,&quot;sorts&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;sortableColumns&quot;:null,&quot;sortingStatus&quot;:true,&quot;singleColumnSortingStatus&quot;:true,&quot;defaultSortColumn&quot;:&quot;created_at&quot;,&quot;defaultSortDirection&quot;:&quot;desc&quot;,&quot;defaultSortingLabelAsc&quot;:&quot;A-Z&quot;,&quot;defaultSortingLabelDesc&quot;:&quot;Z-A&quot;,&quot;search&quot;:&quot;&quot;,&quot;searchStatus&quot;:true,&quot;searchVisibilityStatus&quot;:true,&quot;searchFilterBlur&quot;:null,&quot;searchFilterDebounce&quot;:null,&quot;searchFilterDefer&quot;:null,&quot;searchFilterLazy&quot;:null,&quot;searchFilterLive&quot;:null,&quot;searchFilterThrottle&quot;:null,&quot;searchPlaceholder&quot;:null,&quot;pageName&quot;:null,&quot;perPage&quot;:10,&quot;perPageAccepted&quot;:[[10,25,50],{&quot;s&quot;:&quot;arr&quot;}],&quot;paginationTheme&quot;:&quot;bootstrap&quot;,&quot;paginationVisibilityStatus&quot;:true,&quot;perPageVisibilityStatus&quot;:true,&quot;paginationCurrentItems&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;paginationCurrentCount&quot;:0,&quot;paginationTotalItemCount&quot;:0,&quot;numberOfPaginatorsRendered&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;paginators&quot;:[{&quot;page&quot;:1},{&quot;s&quot;:&quot;arr&quot;}],&quot;bulkActionsStatus&quot;:true,&quot;selectAll&quot;:false,&quot;bulkActions&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;bulkActionConfirms&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;selected&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;hideBulkActionsWhenEmpty&quot;:false,&quot;bulkActionConfirmDefaultMessage&quot;:null,&quot;columnSelectColumns&quot;:[{&quot;setupRun&quot;:true,&quot;selected&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;deselected&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;defaultdeselected&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}]},{&quot;s&quot;:&quot;arr&quot;}],&quot;selectedColumns&quot;:[[&quot;title&quot;,&quot;created-date&quot;,&quot;action&quot;],{&quot;s&quot;:&quot;arr&quot;}],&quot;deselectedColumns&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;selectableColumns&quot;:[{&quot;title&quot;:&quot;Title&quot;,&quot;created-date&quot;:&quot;Created Date&quot;,&quot;action&quot;:&quot;Action&quot;},{&quot;s&quot;:&quot;arr&quot;}],&quot;defaultDeselectedColumns&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;excludeDeselectedColumnsFromQuery&quot;:false,&quot;defaultDeselectedColumnsSetup&quot;:false,&quot;filtersStatus&quot;:true,&quot;filtersVisibilityStatus&quot;:true,&quot;filterPillsStatus&quot;:true,&quot;filterSlideDownDefaultVisible&quot;:false,&quot;filterLayout&quot;:&quot;popover&quot;,&quot;filterCount&quot;:0,&quot;filterComponents&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;appliedFilters&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;filterGenericData&quot;:[{&quot;tableName&quot;:&quot;table&quot;,&quot;filterLayout&quot;:&quot;popover&quot;,&quot;isTailwind&quot;:false,&quot;isBootstrap&quot;:true,&quot;isBootstrap4&quot;:false,&quot;isBootstrap5&quot;:true},{&quot;s&quot;:&quot;arr&quot;}],&quot;queryStringStatus&quot;:false,&quot;reorderStatus&quot;:false,&quot;currentlyReorderingStatus&quot;:false,&quot;hideReorderColumnUnlessReorderingStatus&quot;:false,&quot;reorderDisplayColumn&quot;:false,&quot;reorderMethod&quot;:&quot;reorder&quot;,&quot;defaultReorderColumn&quot;:&quot;sort&quot;,&quot;defaultReorderDirection&quot;:&quot;asc&quot;,&quot;orderedItems&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}]},&quot;memo&quot;:{&quot;id&quot;:&quot;78to9FNI58UDENs5O4RN&quot;,&quot;name&quot;:&quot;resume-table&quot;,&quot;path&quot;:&quot;candidate\/profile&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;6e8517cf428ebf1f0b6d9fe38791d444cd160fa4bac271b67a5b65c6057fc0cc&quot;}" wire:effects="{&quot;url&quot;:{&quot;paginators.page&quot;:{&quot;as&quot;:&quot;page&quot;,&quot;use&quot;:&quot;push&quot;,&quot;alwaysShow&quot;:false,&quot;except&quot;:null}},&quot;listeners&quot;:[&quot;resetPage&quot;,&quot;refreshDatatable&quot;,&quot;set-sort&quot;,&quot;clearsorts&quot;,&quot;set-filter&quot;,&quot;clear-filters&quot;]}" wire:id="78to9FNI58UDENs5O4RN">
+    <div wire:key="table-wrapper" x-data="tableWrapper($wire, )">
+    <div id="datatable-78to9FNI58UDENs5O4RN"
+                >
+
+        <div x-data="reorderFunction($wire, 'table-table', 'id')">
+            <div>
+    <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+</div>
+            <!--[if BLOCK]><![endif]-->    <!--[if BLOCK]><![endif]-->        <div wire:offline.class.remove="d-none" class="d-none">
+            <div class="alert alert-danger d-flex align-items-center">
+                <svg style="width:1.3em;height:1.3em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
+  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd"/>
+</svg>                <span class="d-inline-block ml-2">You are not connected to the internet.</span>
+            </div>
+        </div>
+     <!--[if ENDBLOCK]><![endif]-->
+ <!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+
+        <div class="d-flex flex-column ">
+    <!--[if BLOCK]><![endif]-->    <div>
+        <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+    </div>
+ <!--[if ENDBLOCK]><![endif]-->
+            <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+            <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+
+<div class="d-md-flex justify-content-between mb-3"
+>
+    <div class="d-md-flex"
+    >
+        <div x-cloak x-show="!currentlyReorderingStatus">
+            <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+        </div>
+
+        <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+
+
+
+        <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+    </div>
+
+    <div x-cloak x-show="!currentlyReorderingStatus"
+        class="d-md-flex"
+    >
+        <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+
+
+         
+
+        <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+    </div>
+</div>
+<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+
+
+<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+</div>
+
+        <!--[if BLOCK]><![endif]-->    <div class="d-lg-flex justify-content-between align-items-center mb-sm-7 mb-4">
+        <!--[if BLOCK]><![endif]-->            <div class="mb-3 mb-sm-0">
+    <form class="d-flex position-relative">
+        <div class="position-relative d-flex width-320">
+          <span
+                  class="position-absolute d-flex align-items-center top-0 bottom-0 left-0 text-gray-600 ms-3">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
+            <input class="form-control search-box ps-8" wire:model.live="search" type="search" placeholder="Search" aria-label="Search">
+        </div>
+    </form>
+    <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+</div>
+         <!--[if ENDBLOCK]><![endif]-->
+        <div class="d-sm-flex d-block justify-content-end align-items-center pt-0 mt-0">
+            <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+            <!--[if BLOCK]><![endif]-->                <a type="button" class="btn btn-primary uploadResumeModal">
+Upload Resume
+</a>
+             <!--[if ENDBLOCK]><![endif]-->
+        </div>
+    </div>
+    <div wire:key="table-twrap"
+        class="table-responsive">
+        <table wire:key="table-table"
+            class="table table-striped" id="table-table">
+            <thead wire:key="table-thead"
+                class="">
+                <tr>
+                    <th x-cloak x-cloak="x-cloak" x-show="currentlyReorderingStatus" wire:key="table-thead-reorder" scope="col"
+    class="laravel-livewire-tables-reorderingMinimised" default="default" x-cloak="x-cloak" x-show="currentlyReorderingStatus" wire:key="table-thead-reorder"
+    >
+    <div x-cloak x-show="currentlyReorderingStatus"></div>
+</th>
+                <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+                <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+
+                <!--[if BLOCK]><![endif]-->                                                            
+                    <!--[if BLOCK]><![endif]-->    <th scope="col" class="text-center" wire:key="table-table-head-0"
+    >
+        <!--[if BLOCK]><![endif]-->            <!--[if BLOCK]><![endif]-->                <div
+                    class="d-flex align-items-center"
+                    wire:click="sortBy('custom_properties')"
+                    style="cursor:pointer;"
+                >
+                    <span>Title</span>
+
+                    <span class="relative d-flex align-items-center">
+                        <!--[if BLOCK]><![endif]-->                            <svg style="width:1em;height:1em;" class="ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"/>
+</svg>                         <!--[if ENDBLOCK]><![endif]-->
+                    </span>
+                </div>
+             <!--[if ENDBLOCK]><![endif]-->
+         <!--[if ENDBLOCK]><![endif]-->
+    </th>
+ <!--[if ENDBLOCK]><![endif]-->
+                                                                            
+                    <!--[if BLOCK]><![endif]-->    <th scope="col" class="text-center" style="width:30%;" wire:key="table-table-head-1"
+    >
+        <!--[if BLOCK]><![endif]-->            <!--[if BLOCK]><![endif]-->                <div
+                    class="d-flex align-items-center"
+                    wire:click="sortBy('created_at')"
+                    style="cursor:pointer;"
+                >
+                    <span>Created Date</span>
+
+                    <span class="relative d-flex align-items-center">
+                        <!--[if BLOCK]><![endif]-->                            <svg style="width:1em;height:1em;" class="ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"/>
+</svg>                         <!--[if ENDBLOCK]><![endif]-->
+                    </span>
+                </div>
+             <!--[if ENDBLOCK]><![endif]-->
+         <!--[if ENDBLOCK]><![endif]-->
+    </th>
+ <!--[if ENDBLOCK]><![endif]-->
+                                                                            
+                    <!--[if BLOCK]><![endif]-->    <th scope="col" class="text-center" style="width:14%;" wire:key="table-table-head-2"
+    >
+        <!--[if BLOCK]><![endif]-->            <!--[if BLOCK]><![endif]-->                Action
+             <!--[if ENDBLOCK]><![endif]-->
+         <!--[if ENDBLOCK]><![endif]-->
+    </th>
+ <!--[if ENDBLOCK]><![endif]-->
+                 <!--[if ENDBLOCK]><![endif]-->
+                </tr>
+            </thead>
+
+            <tbody wire:key="table-tbody" id="table-tbody"
+                class="">
+                <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+            <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+
+
+            <!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->
+                    <!--[if BLOCK]><![endif]-->    <tr wire:key="empty-message-78to9FNI58UDENs5O4RN">
+        <td colspan="100">
+            <div class="text-center">
+                No records found.
+            </div>
+        </td>
+    </tr>
+ <!--[if ENDBLOCK]><![endif]-->
+            
+             <!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+            </tbody>
+
+            <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+        </table>
+    </div>
+ <!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+
+<!--[if BLOCK]><![endif]-->    <div>
+        <div class="d-flex align-items-center flex-xxl-row flex-column mb-5 mt-3">
+            <!--[if BLOCK]><![endif]-->                <!--[if BLOCK]><![endif]-->                    <div
+                        class="mb-xxl-0 mb-xl-5 mb-3 d-flex align-items-center justify-content-sm-start justify-content-center">
+                        <span class="me-3 text-gray-600 fs-4 fs-xl-6">Show</span>
+                        <select wire:model.live="perPage" id="perPage"
+                            class="form-select w-auto data-sorting pl-1 pr-5 py-2 border-0">
+                            <!--[if BLOCK]><![endif]-->                                <option value="10"
+                                    wire:key="per-page-10-table">
+                                    10</option>
+                                                            <option value="25"
+                                    wire:key="per-page-25-table">
+                                    25</option>
+                                                            <option value="50"
+                                    wire:key="per-page-50-table">
+                                    50</option>
+                             <!--[if ENDBLOCK]><![endif]-->
+                        </select>
+                    </div>
+                                            <div class="row">
+                            <div class="col-12 ms-3 text-gray-600 fs-4">
+                                Showing                                <strong>0</strong>
+                                results                            </div>
+                        </div>
+                     <!--[if ENDBLOCK]><![endif]-->
+                 <!--[if ENDBLOCK]><![endif]-->
+             <!--[if ENDBLOCK]><![endif]-->
+        </div>
+    </div>
+ <!--[if ENDBLOCK]><![endif]-->
+
+<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+        </div>
+    </div>
+</div>
+</div>
+    <div id="candidateResumeModal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Upload Resume</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <form method="POST" action="http://127.0.0.1:8000/candidate/profile" accept-charset="UTF-8" id="addCandidateResumeForm"><input name="_token" type="hidden" value="rQlXdhn3RGAbolXtYafQE9LUJEVe4qBXK0MjJyze">
+            <div class="modal-body">
+                <div class="alert alert-danger hide d-none" id="validationErrorsBox">
+                    <i class='fa-solid fa-face-frown me-4'></i>
+                </div>
+                <div class="mb-5">
+                    <label for="title" class="form-label">Title:</label>
+                    <span class="required"></span>
+                    <input id="uploadResumeTitle" class="form-control" required maxlength="150" placeholder="Title" name="title" type="text">
+                </div>
+                <div class="mb-5">
+                    <div>
+                        <label for="customFile" class="form-label">Choose file:</label>
+                        <span class="required"></span>
+                        <input type="file" class="form-control custom-file-input" id="customFile" name="file" required>
+                    </div>
+                </div>
+                <div>
+                    <label for="is_default" class="form-label">Is Default:</label>
+                    <br>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" name="is_default" type="checkbox"
+                               value="1" id="default">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer pt-0">
+                <button type="submit" class="btn btn-primary m-0" id="candidateSaveBtn" data-loading-text="&lt;span class=&#039;spinner-border spinner-border-sm&#039;&gt;&lt;/span&gt; Processing...">Save</button>
+                <button type="button" class="btn btn-secondary my-0 ms-5 me-0"
+                        data-bs-dismiss="modal">Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+</div>
+
+            </div>
+        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='container-fluid container-xxl'>
+                <footer class="border-top w-100 pt-4 mt-7 d-flex justify-content-lg-between">
+    <p class="fs-6 text-gray-600">All Rights Reserved &copy;2024
+        <a href="https://technova.co.ke"
+           class="text-decoration-none">Technova Job Board</a>
+    </p>
+    <p class="fs-6 text-gray-600">
+        v14.2.0-patch-2
+    </p>
+</footer>
+            </div>
+            <div class="modal fade" id="editProfileModal"  tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Edit Profile</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <form method="POST" action="http://127.0.0.1:8000/candidate/profile" accept-charset="UTF-8" id="editCandidateProfileForm" enctype="multipart/form-data"><input name="_token" type="hidden" value="rQlXdhn3RGAbolXtYafQE9LUJEVe4qBXK0MjJyze">
+            <div class="modal-body">
+                <div class="alert alert-danger d-none" id="validationErrorsBoxCandidate"></div>
+                <input id="editUserId" name="user_id" type="hidden">
+                <input type="hidden" name="_token" value="rQlXdhn3RGAbolXtYafQE9LUJEVe4qBXK0MjJyze">
+                <div class="row">
+                    <div class="form-group col-sm-6 mb-5">
+                        <label for="first_name" class="form-label required">First Name:</label>
+                        <input id="firstName" class="form-control" required placeholder="First Name" name="first_name" type="text">
+                    </div>
+                    <div class="form-group col-sm-6 mb-5">
+                        <label for="last_name" class="form-label required">Last Name:</label>
+                        <input id="lastName" class="form-control" placeholder="Last Name" name="last_name" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-6 mb-5">
+                        <label for="email" class="required form-label">Email:</label>
+                        <input id="editEmail" class="form-control" required placeholder="Email" name="email" type="text">
+                    </div>
+                    <div class="form-group col-sm-6 mb-5">
+                    <div io-image-input="true">
+                    <label for="" class="form-label">Profile:</label>
+                    <span data-bs-toggle="tooltip"
+                          data-placement="top"
+                          data-bs-original-title="The image must be of pixel 90 x 60.">
+                                <i class="fas fa-question-circle ml-1general-question-mark"></i>
+                        </span>
+                    <div class="d-block">
+                        <div class="image-picker">
+                            <div class="image previewImage" id='profilePicturePreview'
+                                 style="background-image: url(http://127.0.0.1:8000/assets/img/infyom-logo.png)"></div>
+                            <span class="picker-edit rounded-circle text-gray-500 fs-small"
+                                  data-bs-toggle="tooltip"
+                                  data-placement="top" data-bs-original-title="Change Profile">
+                                    <label>
+                                    <i class="fa-solid fa-pen" id="profileImageIcon"></i>
+                                        <input type="file" id="profilePicture" name="image"
+                                               class="image-upload d-none" accept="image/*"/>
+                                    </label>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer pt-0">
+                <button type="submit" class="btn btn-primary m-0"  id="btnEditSave">Save</button>
+                <button type="button" class="btn btn-secondary my-0 ms-5 me-0"
+                        data-bs-dismiss="modal">Cancel
+                </button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="changeLanguageModal"  tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Change Language</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <form method="POST" action="http://127.0.0.1:8000/candidate/profile" accept-charset="UTF-8" id="changeCandidateLanguageForm"><input name="_token" type="hidden" value="rQlXdhn3RGAbolXtYafQE9LUJEVe4qBXK0MjJyze">
+                <div class="modal-body">
+                    <div class="alert alert-danger  hide d-none" id="editProfileValidationErrorsBox"></div>
+                    <input type="hidden" name="_token" value="rQlXdhn3RGAbolXtYafQE9LUJEVe4qBXK0MjJyze">
+                    <div class="">
+                        <label for="language" class="required form-label">Language:</label>
+                        <select id="language" class="form-select" required name="language"><option value="en" selected="selected">English</option><option value="fr">French</option><option value="de">German</option><option value="ar">Arabic</option><option value="tr">Turkish</option><option value="es">Spanish</option><option value="pt">Portuguese</option><option value="ru">Russian</option><option value="swa">Swahili</option></select>
+                    </div>
+                </div>
+                <div class="modal-footer pt-0">
+                    <button type="submit" class="btn btn-primary m-0" id="btnLanguageChange">Save</button>
+                    <button type="button" class="btn btn-secondary my-0 ms-5 me-0"
+                            data-bs-dismiss="modal">Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+            <div id="changePasswordModal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Change Password</h3>
+                <button type="button" aria-label="Close" class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+            </div>
+            <form method="POST" action="http://127.0.0.1:8000/candidate/profile" accept-charset="UTF-8" id="changeCandidatePasswordForm"><input name="_token" type="hidden" value="rQlXdhn3RGAbolXtYafQE9LUJEVe4qBXK0MjJyze">
+            <div class="modal-body">
+                                <div class="alert alert-danger d-none" id="editPasswordValidationErrorsBox"></div>
+                <input id="pfUserId" name="user_id" type="hidden">
+                <input name="is_active" type="hidden" value="1">
+                <input type="hidden" name="_token" value="rQlXdhn3RGAbolXtYafQE9LUJEVe4qBXK0MjJyze">
+                <div class="mb-5">
+                    <label for="current password" class="form-label required">Current Password:</label>
+                    <input class="form-control" id="pfCurrentPassword" type="password" name="password_current" required>
+                </div>
+                <div class="mb-5">
+                    <label for="password" class="required form-label">New Password:</label>
+                    <input class="form-control" id="pfNewPassword" type="password" name="password" required>
+                </div>
+                <div class="">
+                    <label for="password_confirmation" class="required form-label">Confirm Password:</label>
+                    <input class="form-control" id="pfNewConfirmPassword" type="password"
+                           name="password_confirmation" required>
+                </div>
+            </div>
+            <div class="modal-footer pt-0">
+                <button type="submit" class="btn btn-primary m-0" id="btnPrPasswordEditSave" data-loading-text="&lt;span class=&#039;spinner-border spinner-border-sm&#039;&gt;&lt;/span&gt; Processing...">Save</button>
+                <button type="button" class="btn btn-secondary my-0 ms-5 me-0"
+                        id="btnEditCancel"
+                        data-bs-dismiss="modal">Cancel</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+    <script data-turbo-eval="false">
+        var hostUrl = 'assets/';
+        let getLoggedInUserLang = 'en';
+        let defaultCountryCodeValue = "ke"
+        Lang.setLocale(getLoggedInUserLang)
+    </script>
+    </body>
+
+</html>

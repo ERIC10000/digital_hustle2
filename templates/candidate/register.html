@@ -1,0 +1,70 @@
+{% include '/components/header.html' %}
+{% include '/components/navbar.html' %}
+
+
+<section>
+    <div class="auth-form-container">
+        <div class="auth-form-wrapper">
+            <div class="auth-form-title">
+                <p class="text-blue3">{{message}}</p>
+                <p class="text-blue3" style="color: red;">{{warning}}</p>
+                <p class="text-blue3" style="color: green;">{{success}}</p>
+
+            </div>
+            <div class="auth-form-box">
+                <form action="/candidate/register" method="POST">
+                    <div class="auth-from-row">
+                        <div class="auth-form-group">
+                            <label for="email" class="auth-form-label">Email</label>
+                            <input id="email" class="auth-form-input" type="email" name="email" value="">
+                            <small class="auth-form-error">
+                                    {{error1}}
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="auth-form-row">
+                        <div class="auth-form-group">
+                            <label for="fname" class="auth-form-label">First Name</label>
+                            <input id="fname" class="auth-form-input" type="text" name="fname" value="">
+                            <small class="auth-form-error">
+                                    {{error2}}
+                            </small>
+                        </div>
+                        <div class="auth-form-group">
+                            <label for="surname" class="auth-form-label">Surname</label>
+                            <input id="surname" class="auth-form-input" type="text" name="surname" value="">
+                            <small class="auth-form-error">
+                                    {{error3}}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="auth-form-row">
+                        <div class="auth-form-group">
+                            <label for="password" class="auth-form-label">Password</label>
+                            <input id="password" class="auth-form-input" type="password" name="password" >
+                            <small class="auth-form-error">
+                                     {{error4}}
+                                     {{error5}}
+                            </small>
+                        </div>
+                        <div class="auth-form-group">
+                            <label for="c_password" class="auth-form-label">Confirm Password</label>
+                            <input id="c_password" class="auth-form-input" type="password" name="password_confirmation" >
+                            <small class="auth-form-error">
+                                     {{error6}}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="auth-from-row">
+                        <div class="auth-form-group">
+                            <button type="submit" value="Register" class="auth-form-btn">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <a href="/candidate/login" class="auth-form-link">Already have an account? Click here</a>
+        </div>
+    </div>
+</section>
+
