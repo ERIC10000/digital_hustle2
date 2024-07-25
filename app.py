@@ -446,11 +446,71 @@ def add_education():
 def add_experience():
     return render_template('candidate2/candidate/profile/add_experience_modal.html')
 
-@app.route('/candidate2/general')
-def general():
-    return render_template('candidate2/candidate/profile/general.html')
 
     
+# updating candidate profile - Titus
+@app.route('/candidate2/general', methods=['POST', 'GET'])
+@login_required # comment out for debugging
+def general():
+    if 'key' in session :        
+        connection = pymysql.connect(**db_config)
+        cursor = connection.cursor()
+        cand_id = session.get('key', 1) # null check if no id found
+        if request.method == 'POST' :
+            firstname = request.form['cand_fname']
+            lastname = request.form['cand_lname']
+            surname = request.form['cand_surname']
+            phone = request.form['cand_phone']
+            title = request.form['cand_title']
+            gender = request.form['cand_gender']
+            dob = request.form['cand_dob']
+            national_id_no = request.form['cand_national_id_no']
+            address = request.form['cand_address']
+            bio = request.form['cand_bio']          
+            if len(firstname) <= 0:
+                flash('First Name Cannot be Empty', 'danger')
+                return redirect(url_for('general'))
+            if len(lastname) <= 0:
+                flash('Last Name Cannot be Empty', 'danger')
+                return redirect(url_for('general'))
+            if len(gender) <= 0:
+                flash('Gender Cannot be Empty', 'danger')
+                return redirect(url_for('general'))
+            if len(title) <= 0:
+                flash('Title Cannot be Empty', 'danger')
+                return redirect(url_for('general'))
+            if len(surname) <= 0:
+                flash('Surname Cannot be Empty', 'danger')
+                return redirect(url_for('general'))
+            if len(phone) <= 0:
+                flash('Job Description Cannot be Empty', 'danger')
+                return redirect(url_for('general'))
+            if len(national_id_no) <= 0:
+                flash('National Id Cannot be Empty', 'danger')
+                return redirect(url_for('general'))
+            if len(address) <= 0:
+                flash('Address Cannot be Empty', 'danger')
+                return redirect(url_for('general'))
+            if len(bio) <= 0:
+                flash('Bio Cannot be Empty', 'danger')
+                return redirect(url_for('general'))
+            else:
+                data = (firstname, lastname, surname, phone, title, gender, dob, national_id_no, address, bio, cand_id)
+                sql = "update candidates set fname = %s, lname = %s, surname = %s, phone = %s, professional_title = %s, gender = %s, dob = %s, national_id_no = %s, address = %s, bio = %s where id = %s"
+                cursor.execute(sql, data)
+                connection.commit()
+                                
+                flash("Updated Profile Successfully", 'success')
+                return redirect(url_for('general'))
+        else:
+            sql = 'SELECT * FROM candidates WHERE id=%s'
+            cursor.execute(sql, cand_id)
+            cand_profile = cursor.fetchone()
+            connection.close()
+            #TOFIX : Able to fetch profile but disconnect to the UI. Update Function working though
+            return render_template('candidate2/candidate/profile/general.html', profile=cand_profile)
+    else:
+        return redirect('/candidate/login')
 
 
 if __name__ == '__main__':
